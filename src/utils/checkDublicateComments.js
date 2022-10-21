@@ -3,8 +3,11 @@ export const checkDublicateComments = (comments, data) => {
         return true;
     } else {
         comments.forEach((el) => {
-            console.log(el);
-            return el !== data;
+            if (el !== data) {
+                return true;
+            } else {
+                return false;
+            }
         });
     }
 };

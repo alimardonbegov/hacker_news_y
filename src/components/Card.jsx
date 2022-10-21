@@ -10,7 +10,7 @@ function Card(props) {
 
     const newsIds = useSelector((state) => state.newsIds.newsIds);
     const [theNews, setTheNews] = useState({});
-
+    // abegov
     useEffect(() => {
         getTheNews(props.id).then((data) => data && data.url && setTheNews(data));
     }, [newsIds]);

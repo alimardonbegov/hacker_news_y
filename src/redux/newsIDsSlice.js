@@ -6,6 +6,7 @@ const initialState = {
     status: null,
     secondsUpdateInterval: 60,
 };
+// abegov
 
 export const newsIDsSlice = createSlice({
     name: "newsIds",

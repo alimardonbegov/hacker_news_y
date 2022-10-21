@@ -6,7 +6,7 @@ export const timeCalc = (timeNews) => {
     const day = 86400;
     const month = 2592000;
     const year = 31536000;
-
+    // made by Alimardon
     if (seconds > 0 && seconds < minute) {
         return `${seconds} seconds`;
     } else if (seconds < hour) {

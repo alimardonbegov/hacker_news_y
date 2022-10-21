@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getTheNews } from "../service/hackerNewsAPI";
 import { checkDublicateComments } from "../utils/checkDublicateComments";
+import { sortComments } from "../utils/sortComments";
 import Comment from "./Comment";
 import Loader from "./loader/Loader";
 import ThenewsDetail from "./ThenewsDetail";
@@ -37,7 +38,7 @@ function BlockWithComments(props) {
                 <h2 className="comments__block-name">Comments</h2>
 
                 {comments.length > 0 ? (
-                    comments.map((el, index) => <Comment key={index} comment={el} />)
+                    sortComments(comments).map((el, index) => <Comment key={index} comment={el} />)
                 ) : (
                     <h3>There is no comments yet</h3>
                 )}

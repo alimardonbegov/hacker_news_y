@@ -22,7 +22,7 @@ function Comment({ comment }) {
                     ></div>
                 )}
             </div>
-            {comment.kids && show && <Subcomment kids={comment.kids} key={comment.kids} />}
+            {comment.kids && show && <Subcomment kids={comment.kids} />}
         </div>
     );
 }

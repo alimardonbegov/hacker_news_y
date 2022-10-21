@@ -1,6 +1,6 @@
 export const countReplies = (kids) => {
     if (kids === undefined) {
-        return "0 replies";
+        return;
     }
     if (kids.length <= 1) {
         return `${kids.length} reply`;
