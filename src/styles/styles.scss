@@ -1,0 +1,132 @@
+@import "nullStyles.scss";
+
+$color1: #8fd14f;
+$color2: #cee741;
+
+body {
+    background-color: $color1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*********** MAIN PAGE ***********/
+.container {
+    padding: 50px 90px;
+}
+.top-on-page {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    &__name {
+        font-size: 46px;
+    }
+
+    &__update-button {
+        font-size: 46px;
+        background-color: transparent;
+    }
+}
+
+/*********** MAIN PAGE __ NEWS BLOCK ***********/
+
+.news {
+}
+
+/*********** MAIN PAGE __ NEWS BLOCK__CARD COMPONENT ***********/
+
+.card {
+    margin: 1em 0;
+    background-color: $color2;
+    &__title {
+        font-size: 2em;
+        padding-bottom: 0.2em;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: flex-start;
+        & > div {
+            margin-right: 1em;
+        }
+    }
+
+    &__option {
+    }
+
+    &__option-text {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    &__author {
+    }
+
+    &__date {
+    }
+
+    &__rating {
+    }
+}
+
+/*********** NEWS PAGE __ THE NEWS DETAIL (TOP OF THE COMMENTS) ***********/
+
+.news-detail {
+    margin: 1em 0;
+    background-color: $color2;
+    &__title {
+        font-size: 2em;
+        padding-bottom: 0.2em;
+    }
+    &__link {
+        font-size: 2em;
+        color: blue;
+        &:hover {
+            color: $color1;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: flex-start;
+        & > div {
+            margin-right: 1em;
+        }
+    }
+
+    &__option {
+    }
+
+    &__date {
+    }
+
+    &__author {
+    }
+
+    &__count {
+    }
+}
+.comments {
+    margin: 4em 0 0 0;
+    &__block-name {
+        font-size: 2em;
+        font-weight: 600;
+    }
+}
+.comment {
+    padding: 1.2em 0;
+    font-size: 1em;
+    &__comment-detail {
+        padding-bottom: 0.5em;
+        color: #828282;
+    }
+    &__author {
+        margin-right: 1em;
+    }
+
+    &__date {
+    }
+    &__text {
+        p {
+            padding-top: 7px;
+        }
+    }
+}
