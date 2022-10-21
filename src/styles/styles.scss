@@ -1,28 +1,34 @@
 @import "nullStyles.scss";
 
-$color1: #8fd14f;
-$color2: #cee741;
+$color1: rgb(241, 242, 251);
+$color2: white;
+$color3: rgb(71, 75, 255);
 
 body {
     background-color: $color1;
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(37, 51, 66);
 }
 
 /*********** MAIN PAGE ***********/
 .container {
-    padding: 50px 90px;
+    padding: 3em 7em;
 }
 .top-on-page {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 40px;
+    padding-bottom: 3em;
+    color: $color3;
+
     &__name {
-        font-size: 46px;
+        color: $color3;
+        font-size: 3em;
     }
 
     &__update-button {
-        font-size: 46px;
-        background-color: transparent;
+        color: $color3;
+        background: none;
+        font-size: 3em;
     }
 }
 
@@ -34,8 +40,12 @@ body {
 /*********** MAIN PAGE __ NEWS BLOCK__CARD COMPONENT ***********/
 
 .card {
+    font-size: 0.8em;
     margin: 1em 0;
+    padding: 10px;
+    border-radius: 8px;
     background-color: $color2;
+
     &__title {
         font-size: 2em;
         padding-bottom: 0.2em;
@@ -53,6 +63,7 @@ body {
     }
 
     &__option-text {
+        color: $color3;
         font-weight: bold;
         font-style: italic;
     }
@@ -123,7 +134,11 @@ body {
     }
 
     &__date {
+        margin-right: 1em;
     }
+    &__replies {
+    }
+
     &__text {
         p {
             padding-top: 7px;
