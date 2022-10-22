@@ -7,16 +7,15 @@ function ThenewsDetail({ theNews, realComments }) {
     return (
         <div className="news-detail">
             <h1 className="news-detail__title">
-                {theNews.title} (
-                <a
-                    className="news-detail__link"
-                    href={theNews.url}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    {getDomain(theNews.url)}
-                </a>
-                )
+                {theNews.title}
+                <span className="news-detail__link">
+                    {" "}
+                    (
+                    <a href={theNews.url} target="_blank" rel="noreferrer">
+                        {getDomain(theNews.url)}
+                    </a>
+                    )
+                </span>
             </h1>
             <div className="news-detail__bottom">
                 <div className="news-detail__option">

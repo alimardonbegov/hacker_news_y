@@ -85,12 +85,14 @@ body {
         font-size: 2em;
         padding-bottom: 0.2em;
     }
-    &__link {
+    &__link,
+    a {
         color: $color3;
-        opacity: 0.8;
-        &:hover {
-            text-decoration: underline;
-        }
+        opacity: 0.9;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 
     &__bottom {
