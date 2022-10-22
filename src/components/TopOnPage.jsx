@@ -12,9 +12,9 @@ function TopOnPage() {
 
     return (
         <div className="top-on-page">
-            <header className="top-on-page__name" onClick={() => navigate("/")}>
+            <button className="top-on-page__name" onClick={() => navigate("/")}>
                 Hacker News
-            </header>
+            </button>
             <button className="top-on-page__update-button" onClick={() => dispatch(getNewsIds())}>
                 Update
             </button>
