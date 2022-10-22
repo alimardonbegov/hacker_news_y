@@ -1,12 +1,20 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import AppRouter from "./components/AppRouter";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { routes } from "../src/router/router";
 
 function App() {
     return (
         <BrowserRouter>
-            <AppRouter />
+            <Routes>
+                {routes.map((r) => (
+                    <Route
+                        key={r.element}
+                        path={r.path}
+                        element={r.element}
+                        exact={r.exact}
+                    ></Route>
+                ))}
+            </Routes>
         </BrowserRouter>
     );
 }

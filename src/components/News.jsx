@@ -12,10 +12,10 @@ function News() {
     }, []);
 
     return (
-        <div>
+        <>
             {newsIds.length > 0 &&
                 newsIds.slice(0, 99).map((el, index) => <Card key={index} id={el} />)}
-        </div>
+        </>
     );
 }
 

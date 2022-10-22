@@ -34,18 +34,19 @@ function BlockWithComments(props) {
     return theNews.title == undefined ? (
         <Loader />
     ) : (
-        <div>
+        <>
             <ThenewsDetail theNews={theNews} realComments={comments} />
-            <div className="comments">
-                {comments.length > 0 ? (
-                    sortComments(comments).map((el, index) => <Comment key={index} comment={el} />)
-                ) : (
-                    <h3>There is no comments yet</h3>
-                )}
-
-                <h2 className="comments__block-name">Comments</h2>
-            </div>
-        </div>
+            {comments.length > 0 ? (
+                <div className="comments">
+                    <h2 className="comments__block-name">Comments</h2>
+                    {sortComments(comments).map((el, index) => (
+                        <Comment key={index} comment={el} />
+                    ))}
+                </div>
+            ) : (
+                <></>
+            )}
+        </>
     );
 }
 

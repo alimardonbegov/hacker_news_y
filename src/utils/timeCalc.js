@@ -8,14 +8,16 @@ export const timeCalc = (timeNews) => {
     const year = 31536000;
     // made by Alimardon
     if (seconds > 0 && seconds < minute) {
-        return `${seconds} seconds`;
+        return `${seconds} seconds ago`;
     } else if (seconds < hour) {
-        return `${Math.floor(seconds / minute)} minutes`;
+        return `${Math.floor(seconds / minute)} minutes ago`;
     } else if (seconds < day) {
-        return `${Math.floor(seconds / hour)} hours`;
+        return `${Math.floor(seconds / hour)} hours ago`;
     } else if (seconds < month) {
-        return `${Math.floor(seconds / day)} days`;
+        return `${Math.floor(seconds / day)} days ago`;
     } else if (seconds < year) {
-        return `${Math.floor(seconds / month)} months`;
+        return `${Math.floor(seconds / month)} months ago`;
+    } else if (seconds > year) {
+        return `${Math.floor(seconds / year)} years ago`;
     }
 };

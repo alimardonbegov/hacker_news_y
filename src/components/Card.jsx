@@ -6,9 +6,9 @@ import { timeCalc } from "../utils/timeCalc";
 
 function Card(props) {
     const navigate = useNavigate();
-
     const newsIds = useSelector((state) => state.newsIds.newsIds);
     const [theNews, setTheNews] = useState({});
+
     // abegov
     useEffect(() => {
         getTheNews(props.id).then((data) => data && data.url && setTheNews(data));

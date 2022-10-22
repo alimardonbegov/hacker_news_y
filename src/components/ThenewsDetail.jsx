@@ -11,7 +11,7 @@ function ThenewsDetail({ theNews, realComments }) {
             <h1 className="news-detail__title">{theNews.title}</h1>
             <div className="news-detail__bottom">
                 <div className="news-detail__option">
-                    <span className="news-detail__date">{timeCalc(theNews.time)} ago</span>
+                    <span className="news-detail__date">{timeCalc(theNews.time)}</span>
                 </div>
                 <div className="news-detail__option">
                     <span className="news-detail__author">{theNews.by}</span>
