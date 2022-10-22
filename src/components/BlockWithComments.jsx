@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getTheNews } from "../service/hackerNewsAPI";
+import { checkDeleteComment } from "../utils/checkDeleteComment";
 import { checkDublicateComments } from "../utils/checkDublicateComments";
 import { sortComments } from "../utils/sortComments";
 import Comment from "./Comment";
@@ -23,6 +24,7 @@ function BlockWithComments(props) {
             theNews.kids.map((el) =>
                 getTheNews(el).then((data) => {
                     data &&
+                        checkDeleteComment(data) &&
                         checkDublicateComments(comments, data) &&
                         setComments((prevValue) => [...prevValue, data]);
                 })
@@ -33,15 +35,15 @@ function BlockWithComments(props) {
         <Loader />
     ) : (
         <div>
-            <ThenewsDetail theNews={theNews} />
+            <ThenewsDetail theNews={theNews} realComments={comments} />
             <div className="comments">
-                <h2 className="comments__block-name">Comments</h2>
-
                 {comments.length > 0 ? (
                     sortComments(comments).map((el, index) => <Comment key={index} comment={el} />)
                 ) : (
                     <h3>There is no comments yet</h3>
                 )}
+
+                <h2 className="comments__block-name">Comments</h2>
             </div>
         </div>
     );
