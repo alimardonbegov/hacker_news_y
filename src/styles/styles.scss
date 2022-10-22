@@ -80,6 +80,8 @@ body {
 
 .news-detail {
     margin: 1em 0;
+    padding: 10px;
+    border-radius: 8px;
     background-color: $color2;
     &__title {
         font-size: 2em;
@@ -90,13 +92,12 @@ body {
         color: $color3;
         opacity: 0.9;
     }
-
     a:hover {
         text-decoration: underline;
     }
-
     &__bottom {
         display: flex;
+        margin-top: 0.8em;
         justify-content: flex-start;
         & > div {
             margin-right: 1em;
@@ -119,7 +120,6 @@ body {
     margin: 4em 0 0 0;
     &__block-name {
         font-size: 2em;
-        font-weight: 600;
     }
     .comment {
         padding: 1.2em 0;
