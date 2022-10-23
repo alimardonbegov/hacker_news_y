@@ -3,12 +3,13 @@
 $color1: rgb(241, 242, 251);
 $color2: white;
 $color3: rgb(71, 75, 255);
+$color4: rgb(37, 51, 66);
 
 body {
     padding: 0 calc(20px - (100vw - 100%)) 0 0;
     background-color: $color1;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
-    color: rgb(37, 51, 66);
+    color: $color4;
 }
 
 /*********** MAIN PAGE ***********/
@@ -166,5 +167,90 @@ body {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media (min-width: 2400px) {
+    body {
+        font-size: 1.8em;
+    }
+    .container {
+        padding: 3em 15em;
+    }
+}
+
+@media (max-width: 2399px) and (min-width: 1900px) {
+    body {
+        font-size: 1.5em;
+    }
+    .container {
+        padding: 3em 15em;
+    }
+}
+
+@media (max-width: 1899px) and (min-width: 1600px) {
+    body {
+        font-size: 1.5em;
+    }
+    .container {
+        padding: 3em 10em;
+    }
+}
+@media (max-width: 1599px) and (min-width: 1400px) {
+    body {
+        font-size: 1.3em;
+    }
+    .container {
+        padding: 3em 10em;
+    }
+}
+
+@media (max-width: 1399px) and (min-width: 1200px) {
+    body {
+        font-size: 1em;
+    }
+    .container {
+        padding: 3em 7em;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 857px) {
+    body {
+        padding: 0;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 856px) and (min-width: 700px) {
+    body {
+        padding: 0;
+        font-size: 0.95em;
+    }
+    .container {
+        padding: 3em 6em;
+    }
+}
+
+@media (max-width: 699px) and (min-width: 547px) {
+    body {
+        padding: 0;
+        font-size: 0.95em;
+    }
+    .container {
+        padding: 3em 4em;
+    }
+}
+
+@media (max-width: 546px) {
+    body {
+        padding: 0;
+        font-size: 0.7em;
+    }
+
+    .container {
+        padding: 2em 1em;
+    }
+    .card {
+        font-size: 0.95em;
     }
 }
