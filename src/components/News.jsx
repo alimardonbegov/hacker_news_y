@@ -7,6 +7,7 @@ import { newsCount } from "../constants/constants";
 
 function News() {
     const dispatch = useDispatch();
+    const isShowNews = useSelector((state) => state.news.isShowNews);
     const newsList = useSelector((state) => state.news.newsList);
     const [skeletons, setSkeletons] = useState([]);
 
@@ -17,16 +18,11 @@ function News() {
         }
     }, []);
 
-    console.log(newsList);
-
     return (
         <>
-            {newsList.length == 0
-                ? skeletons.map((el, index) => <SkeletonCard key={el} />)
-                : newsList.length > 0 &&
-                  newsList
-                      .slice(0, newsCount)
-                      .map((el, index) => <Card key={index} theNews={el} />)}
+            {newsList.length == 0 || !isShowNews
+                ? skeletons.map((el, index) => <SkeletonCard key={index} />)
+                : newsList.map((el) => <Card key={el.id} theNews={el} />)}
         </>
     );
 }

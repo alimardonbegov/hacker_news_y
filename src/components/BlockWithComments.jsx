@@ -15,7 +15,9 @@ function BlockWithComments(props) {
 
     //get the news information
     useEffect(() => {
-        getTheNews(props.id).then((data) => data && data.url && setTheNews(data));
+        getTheNews(props.id).then((data) => {
+            data && data.url && setTheNews(data);
+        });
     }, [newsList]);
 
     //get comments information
@@ -32,7 +34,6 @@ function BlockWithComments(props) {
     }, [theNews]);
 
     return theNews.title == undefined ? (
-        //   <Loader />
         <SkeletonTheNews />
     ) : (
         <>
