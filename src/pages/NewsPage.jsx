@@ -1,5 +1,4 @@
 import React from "react";
-// import Card from "../components/Card";
 import TopOnPage from "../components/TopOnPage";
 import { useParams } from "react-router-dom";
 import BlockWithComments from "../components/BlockWithComments";
@@ -9,7 +8,7 @@ function NewsPage() {
 
     return (
         <div className="container">
-            <TopOnPage />
+            <TopOnPage text="Go back" />
             <BlockWithComments id={params.id} />
         </div>
     );

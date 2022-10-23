@@ -1,0 +1,37 @@
+.skeleton {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 8px;
+    background: lightgray;
+    animation: skeleton 0.6s alternate infinite;
+    &__header {
+        background: grey;
+        border-radius: 8px;
+        padding-bottom: 0.2em;
+        height: 2.5em;
+    }
+
+    &__detail {
+        height: 1em;
+        display: flex;
+        margin-top: 0.8em;
+        justify-content: flex-start;
+        & span {
+            background: grey;
+            border-radius: 8px;
+            width: 6em;
+            height: 1em;
+            margin-right: 1em;
+        }
+    }
+}
+
+@keyframes skeleton {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

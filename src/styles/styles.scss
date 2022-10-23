@@ -83,7 +83,6 @@ body {
 /*********** NEWS PAGE __ THE NEWS DETAIL (TOP OF THE COMMENTS) ***********/
 
 .news-detail {
-    margin: 1em 0;
     padding: 10px;
     border-radius: 8px;
     background-color: $color2;
@@ -156,21 +155,19 @@ body {
     }
 }
 
-.card,
-.news-detail,
-.comments {
-    opacity: 0;
-    animation: ani 2s forwards;
-}
+// .card {
+//     opacity: 0;
+//     animation: ani 2s forwards;
+// }
 
-@keyframes ani {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+// @keyframes ani {
+//     0% {
+//         opacity: 0;
+//     }
+//     100% {
+//         opacity: 1;
+//     }
+// }
 
 @media (min-width: 2400px) {
     body {

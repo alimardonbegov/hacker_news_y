@@ -6,6 +6,7 @@ import { checkDublicateComments } from "../utils/checkDublicateComments";
 import { sortComments } from "../utils/sortComments";
 import Comment from "./Comment";
 import Loader from "./loader/Loader";
+import SkeletonTheNews from "./skeletonTheNews/SkeletonTheNews";
 import ThenewsDetail from "./ThenewsDetail";
 
 function BlockWithComments(props) {
@@ -32,7 +33,8 @@ function BlockWithComments(props) {
     }, [theNews]);
 
     return theNews.title == undefined ? (
-        <Loader />
+        //   <Loader />
+        <SkeletonTheNews />
     ) : (
         <>
             <ThenewsDetail theNews={theNews} realComments={comments} />

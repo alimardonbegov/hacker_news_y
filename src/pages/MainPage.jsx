@@ -5,7 +5,7 @@ import TopOnPage from "../components/TopOnPage";
 function MainPage() {
     return (
         <div className="container">
-            <TopOnPage />
+            <TopOnPage text="Hacker News" />
             <News />
         </div>
     );

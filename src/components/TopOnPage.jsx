@@ -1,20 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { getNewsIds } from "../service/hackerNewsAPI";
+import Button from "./button/Button";
 
-function TopOnPage() {
+function TopOnPage({ text }) {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const timeUpdate = useSelector((state) => state.newsIds.secondsUpdateInterval);
-
     setInterval(() => dispatch(getNewsIds()), 1000 * timeUpdate);
 
     return (
         <div className="top-on-page">
-            <button className="top-on-page__name" onClick={() => navigate("/")}>
-                Hacker News
-            </button>
+            <Button text={text} />
             <button className="top-on-page__update-button" onClick={() => dispatch(getNewsIds())}>
                 Update
             </button>
