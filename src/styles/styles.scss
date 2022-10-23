@@ -22,11 +22,13 @@ body {
     margin-bottom: 3em;
 
     &__name {
+        background-color: $color1;
         color: $color3;
         font-size: 3em;
     }
 
     &__update-button {
+        background-color: $color1;
         color: $color3;
         font-size: 3em;
     }
