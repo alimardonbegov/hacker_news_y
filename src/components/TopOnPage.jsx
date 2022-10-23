@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { secondsUpdateInterval } from "../constants/constants";
 import { getNewsIds } from "../service/hackerNewsAPI";
 import Button from "./button/Button";
 
 function TopOnPage({ text }) {
     const dispatch = useDispatch();
-    const timeUpdate = useSelector((state) => state.news.secondsUpdateInterval);
-    setInterval(() => dispatch(getNewsIds()), 1000 * timeUpdate);
+    
+    setInterval(() => dispatch(getNewsIds()), 1000 * secondsUpdateInterval);
 
     return (
         <div className="top-on-page">

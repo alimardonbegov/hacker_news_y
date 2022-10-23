@@ -5,7 +5,6 @@ import { checkDeleteComment } from "../utils/checkDeleteComment";
 import { checkDublicateComments } from "../utils/checkDublicateComments";
 import { sortComments } from "../utils/sortComments";
 import Comment from "./Comment";
-import Loader from "./loader/Loader";
 import SkeletonTheNews from "./skeletonTheNews/SkeletonTheNews";
 import ThenewsDetail from "./ThenewsDetail";
 

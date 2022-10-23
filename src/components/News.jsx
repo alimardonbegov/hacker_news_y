@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNewsIds } from "../service/hackerNewsAPI";
 import SkeletonCard from "../components/SkeletonCard/SkeletonCard";
 import Card from "./Card";
+import { newsCount } from "../constants/constants";
 
 function News() {
     const dispatch = useDispatch();
-    const newsCount = useSelector((state) => state.news.newsCount);
     const newsList = useSelector((state) => state.news.newsList);
     const [skeletons, setSkeletons] = useState([]);
 
