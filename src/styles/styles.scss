@@ -5,6 +5,7 @@ $color2: white;
 $color3: rgb(71, 75, 255);
 
 body {
+    padding: 0 calc(20px - (100vw - 100%)) 0 0;
     background-color: $color1;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: rgb(37, 51, 66);
