@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsIds } from "../service/hackerNewsAPI";
+import SkeletonCard from "../components/SkeletonCard/SkeletonCard";
 import Card from "./Card";
 
 function News() {
     const dispatch = useDispatch();
-    const newsIds = useSelector((state) => state.newsIds.newsIds);
+    const newsCount = useSelector((state) => state.news.newsCount);
+    const newsList = useSelector((state) => state.news.newsList);
+    const [skeletons, setSkeletons] = useState([]);
 
     useEffect(() => {
         dispatch(getNewsIds());
+        for (let i = 0; i < newsCount; i++) {
+            setSkeletons((prevValue) => [...prevValue, i]);
+        }
     }, []);
+
+    console.log(newsList);
 
     return (
         <>
-            {newsIds.length > 0 &&
-                newsIds.slice(0, 99).map((el, index) => <Card key={index} id={el} />)}
+            {newsList.length == 0
+                ? skeletons.map((el, index) => <SkeletonCard key={el} />)
+                : newsList.length > 0 &&
+                  newsList
+                      .slice(0, newsCount)
+                      .map((el, index) => <Card key={index} theNews={el} />)}
         </>
     );
 }

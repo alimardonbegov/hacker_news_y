@@ -10,14 +10,14 @@ import SkeletonTheNews from "./skeletonTheNews/SkeletonTheNews";
 import ThenewsDetail from "./ThenewsDetail";
 
 function BlockWithComments(props) {
-    const newsIds = useSelector((state) => state.newsIds.newsIds);
+    const newsList = useSelector((state) => state.news.newsList);
     const [theNews, setTheNews] = useState({});
     const [comments, setComments] = useState([]);
 
     //get the news information
     useEffect(() => {
         getTheNews(props.id).then((data) => data && data.url && setTheNews(data));
-    }, [newsIds]);
+    }, [newsList]);
 
     //get comments information
     useEffect(() => {

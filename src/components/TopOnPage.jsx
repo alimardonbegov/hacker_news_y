@@ -5,7 +5,7 @@ import Button from "./button/Button";
 
 function TopOnPage({ text }) {
     const dispatch = useDispatch();
-    const timeUpdate = useSelector((state) => state.newsIds.secondsUpdateInterval);
+    const timeUpdate = useSelector((state) => state.news.secondsUpdateInterval);
     setInterval(() => dispatch(getNewsIds()), 1000 * timeUpdate);
 
     return (

@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { getTheNews } from "../service/hackerNewsAPI";
 import { timeCalc } from "../utils/timeCalc";
 
-function Card(props) {
+function Card({ theNews }) {
     const navigate = useNavigate();
-    const newsIds = useSelector((state) => state.newsIds.newsIds);
-    const [theNews, setTheNews] = useState({});
-
-    // abegov
-    useEffect(() => {
-        getTheNews(props.id).then((data) => data && data.url && setTheNews(data));
-    }, [newsIds]);
 
     return (
         theNews.title && (
-            <div className="card" onClick={() => navigate(`/${props.id}`)}>
+            <div className="card" onClick={() => navigate(`/${theNews.id}`)}>
                 <h1 className="card__title">{theNews.title}</h1>
                 <div className="card__bottom">
                     <div className="card__option">
