@@ -10,19 +10,20 @@
         background: grey;
         border-radius: 8px;
         padding-bottom: 0.2em;
-        height: 2em;
+        height: 1.5em;
     }
 
     &__detail {
-        height: 1em;
+        height: 0.7em;
         display: flex;
-        margin-top: 0.8em;
+        height: 0.8em;
+        margin-top: 0.6em;
         justify-content: flex-start;
         & span {
             background: grey;
             border-radius: 8px;
             width: 6em;
-            height: 1em;
+            height: 0.8em;
             margin-right: 1em;
         }
     }
