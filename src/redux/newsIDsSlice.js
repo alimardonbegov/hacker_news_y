@@ -6,7 +6,7 @@ const initialState = {
     comments: [],
     status: null,
     isLoadingComments: true,
-    isShowNews: true,
+    isShowNews: false,
 };
 // abegov
 
@@ -15,10 +15,10 @@ export const newsIDsSlice = createSlice({
     initialState,
     reducers: {
         showNews: (state) => {
-            state.isShowNews = false;
+            state.isShowNews = true;
         },
         hideNews: (state) => {
-            state.isShowNews = true;
+            state.isShowNews = false;
         },
         startLoadingComments: (state) => {
             state.isLoadingComments = true;

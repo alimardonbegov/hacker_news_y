@@ -4,6 +4,7 @@ import { getNewsList } from "../service/hackerNewsAPI";
 import SkeletonCard from "../components/SkeletonCard/SkeletonCard";
 import Card from "./Card";
 import { newsCount } from "../constants/constants";
+import { hideNews, showNews } from "../redux/newsIDsSlice";
 
 function News() {
     const dispatch = useDispatch();
@@ -12,15 +13,21 @@ function News() {
     const [skeletons, setSkeletons] = useState([]);
 
     useEffect(() => {
-        dispatch(getNewsList());
+        const fetctData = async () => {
+            await dispatch(getNewsList());
+            await dispatch(showNews());
+        };
+        fetctData().catch(console.error);
         for (let i = 0; i < newsCount; i++) {
             setSkeletons((prevValue) => [...prevValue, i]);
         }
     }, []);
 
+    console.log(isShowNews);
+
     return (
         <>
-            {newsList.length == 0 || !isShowNews
+            {newsList.length == 0 || isShowNews == false
                 ? skeletons.map((el, index) => <SkeletonCard key={index} />)
                 : newsList.map((el) => <Card key={el.id} theNews={el} />)}
         </>
