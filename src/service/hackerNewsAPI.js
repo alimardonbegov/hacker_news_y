@@ -32,7 +32,7 @@ export const getComments = createAsyncThunk("news/getComments", async (id) => {
             const requests = response.data.kids.map(async (el) => {
                 const url = oneNewsURL + el + ".json";
                 return await axios.get(url).then((res) => {
-                    return res.data;
+                    return checkDeleteComment(res.data) && res.data;
                 });
             });
             return Promise.all(requests);

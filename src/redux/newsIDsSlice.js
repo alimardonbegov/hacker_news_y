@@ -5,6 +5,7 @@ const initialState = {
     newsList: [],
     comments: [],
     status: null,
+    isLoadingComments: true,
     isShowNews: true,
 };
 // abegov
@@ -18,6 +19,16 @@ export const newsIDsSlice = createSlice({
         },
         hideNews: (state) => {
             state.isShowNews = true;
+        },
+        startLoadingComments: (state) => {
+            state.isLoadingComments = true;
+        },
+        finishLoadingComments: (state) => {
+            state.isLoadingComments = false;
+        },
+
+        clearComments: (state) => {
+            state.comments = [];
         },
     },
 
@@ -46,4 +57,5 @@ export const newsIDsSlice = createSlice({
     },
 });
 
-export const { showNews, hideNews } = newsIDsSlice.actions;
+export const { showNews, hideNews, clearComments, startLoadingComments, finishLoadingComments } =
+    newsIDsSlice.actions;
