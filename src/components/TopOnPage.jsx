@@ -2,14 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { secondsUpdateInterval } from "../constants/constants";
+import { getComments, getNewsList } from "../service/hackerNewsAPI";
 import {
     finishLoadingComments,
     hideNews,
     showNews,
     startLoadingComments,
 } from "../redux/newsIDsSlice";
-import { getComments, getNewsList } from "../service/hackerNewsAPI";
-import Button from "./button/Button";
+import MyButton from "./MyButton/MyButton";
 
 function TopOnPage({ text }) {
     const params = useParams();
@@ -38,7 +38,7 @@ function TopOnPage({ text }) {
 
     return (
         <div className="top-on-page">
-            <Button text={text} />
+            <MyButton text={text} />
             <button className="top-on-page__update-button" onClick={handleClick}>
                 Update
             </button>

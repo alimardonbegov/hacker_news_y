@@ -5,7 +5,7 @@ import { finishLoadingComments, startLoadingComments } from "../redux/newsIDsSli
 import { getComments, getTheNews } from "../service/hackerNewsAPI";
 import { sortComments } from "../utils/sortComments";
 import Comment from "./Comment";
-import SkeletonTheNews from "./skeletonTheNews/SkeletonTheNews";
+import SkeletonTheNews from "./SkeletonTheNews/SkeletonTheNews";
 import ThenewsDetail from "./ThenewsDetail";
 
 function BlockWithComments(props) {
@@ -14,28 +14,22 @@ function BlockWithComments(props) {
     const isLoadingComments = useSelector((state) => state.news.isLoadingComments);
     const [theNews, setTheNews] = useState({});
     const sortedComments = sortComments(comments);
-
-    //get the news information
-    useEffect(() => {
+    const loadTheNews = () =>
         getTheNews(props.id).then((data) => {
             data && data.title && setTheNews(data);
         });
+
+    //get the news information
+    useEffect(() => {
+        loadTheNews();
+        dispatch(startLoadingComments());
     }, []);
 
-    setInterval(
-        () =>
-            dispatch(
-                getTheNews(props.id).then((data) => {
-                    data && data.title && setTheNews(data);
-                })
-            ),
-        1000 * secondsUpdateInterval
-    );
+    setInterval(() => loadTheNews(), 1000 * secondsUpdateInterval);
 
     //get comments information
     useEffect(() => {
         const fetctData = async () => {
-            // await dispatch(startLoadingComments());
             await dispatch(getComments(props.id));
             await dispatch(finishLoadingComments());
         };

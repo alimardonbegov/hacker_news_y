@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearComments } from "../../redux/newsIDsSlice";
 
-function Button({ text }) {
+function MyButton({ text }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -19,4 +19,4 @@ function Button({ text }) {
     );
 }
 
-export default Button;
+export default MyButton;

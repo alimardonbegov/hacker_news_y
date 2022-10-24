@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { showNews } from "../redux/newsIDsSlice";
+import { newsCount } from "../constants/constants";
 import { getNewsList } from "../service/hackerNewsAPI";
 import SkeletonCard from "../components/SkeletonCard/SkeletonCard";
 import Card from "./Card";
-import { newsCount } from "../constants/constants";
-import { hideNews, showNews } from "../redux/newsIDsSlice";
 
 function News() {
     const dispatch = useDispatch();
@@ -22,8 +22,6 @@ function News() {
             setSkeletons((prevValue) => [...prevValue, i]);
         }
     }, []);
-
-    console.log(isShowNews);
 
     return (
         <>
