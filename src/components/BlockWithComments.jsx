@@ -16,7 +16,7 @@ function BlockWithComments(props) {
     //get the news information
     useEffect(() => {
         getTheNews(props.id).then((data) => {
-            data && data.url && setTheNews(data);
+            data && data.title && setTheNews(data);
         });
     }, [newsList]);
 

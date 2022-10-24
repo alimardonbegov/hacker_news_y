@@ -11,9 +11,11 @@ function ThenewsDetail({ theNews, realComments }) {
                 <span className="news-detail__link">
                     {" "}
                     (
-                    <a href={theNews.url} target="_blank" rel="noreferrer">
-                        {getDomain(theNews.url)}
-                    </a>
+                    {theNews.url && (
+                        <a href={theNews.url} target="_blank" rel="noreferrer">
+                            {getDomain(theNews.url)}
+                        </a>
+                    )}
                     )
                 </span>
             </h1>
