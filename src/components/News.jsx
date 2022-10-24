@@ -13,19 +13,21 @@ function News() {
     const [skeletons, setSkeletons] = useState([]);
 
     useEffect(() => {
+        for (let i = 0; i < newsCount; i++) {
+            setSkeletons((prevValue) => [...prevValue, i]);
+        }
         const fetctData = async () => {
             await dispatch(getNewsList());
             await dispatch(showNews());
         };
         fetctData().catch(console.error);
-        for (let i = 0; i < newsCount; i++) {
-            setSkeletons((prevValue) => [...prevValue, i]);
-        }
     }, []);
 
     return (
         <>
-            {newsList.length == 0 || isShowNews == false
+            {newsList == undefined ||
+            newsList.length == 0 ||
+            (isShowNews == false && skeletons.length > 0)
                 ? skeletons.map((el, index) => <SkeletonCard key={index} />)
                 : newsList.map((el) => <Card key={el.id} theNews={el} />)}
         </>
