@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { secondsUpdateInterval } from "../constants/constants";
 import { getComments, getNewsList } from "../service/hackerNewsAPI";
 import {
     finishLoadingComments,
@@ -10,11 +9,16 @@ import {
     startLoadingComments,
 } from "../redux/newsIDsSlice";
 import MyButton from "./MyButton/MyButton";
+import { secondsUpdateInterval } from "../constants/constants";
 
 function TopOnPage({ text }) {
     const params = useParams();
     const dispatch = useDispatch();
-    setInterval(() => dispatch(getNewsList()), 1000 * secondsUpdateInterval);
+
+    useEffect(() => {
+        const interval = setInterval(() => dispatch(getNewsList()), 1000 * secondsUpdateInterval);
+        return () => clearInterval(interval);
+    }, []);
 
     function handleClick() {
         const fetctDataNewsList = async () => {

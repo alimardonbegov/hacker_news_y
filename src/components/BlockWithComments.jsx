@@ -23,9 +23,9 @@ function BlockWithComments(props) {
     useEffect(() => {
         loadTheNews();
         dispatch(startLoadingComments());
+        const interval = setInterval(() => loadTheNews(), 1000 * secondsUpdateInterval);
+        return () => clearInterval(interval);
     }, []);
-
-    setInterval(() => loadTheNews(), 1000 * secondsUpdateInterval);
 
     //get comments information
     useEffect(() => {
