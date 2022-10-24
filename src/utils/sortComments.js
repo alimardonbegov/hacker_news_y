@@ -1,3 +1,4 @@
 export const sortComments = (comments) => {
-    return comments.sort(({ time: a }, { time: b }) => (a > b ? 1 : a < b ? -1 : 0));
+    const copyComments = [...comments];
+    return copyComments.sort(({ time: a }, { time: b }) => (a > b ? 1 : a < b ? -1 : 0));
 };
