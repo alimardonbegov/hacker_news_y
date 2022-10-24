@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getNewsIds } from "../service/hackerNewsAPI";
+import { getComments, getNewsList } from "../service/hackerNewsAPI";
 
 const initialState = {
     newsList: [],
+    comments: [],
     status: null,
     isShowNews: true,
 };
@@ -21,14 +22,25 @@ export const newsIDsSlice = createSlice({
     },
 
     extraReducers: {
-        [getNewsIds.pending]: (state) => {
+        [getNewsList.pending]: (state) => {
             state.status = "loading";
         },
-        [getNewsIds.fulfilled]: (state, action) => {
+        [getNewsList.fulfilled]: (state, action) => {
             state.newsList = action.payload;
             state.status = "success";
         },
-        [getNewsIds.rejected]: (state) => {
+        [getNewsList.rejected]: (state) => {
+            state.status = "failed";
+        },
+
+        [getComments.pending]: (state) => {
+            state.status = "loading";
+        },
+        [getComments.fulfilled]: (state, action) => {
+            state.comments = action.payload;
+            state.status = "success";
+        },
+        [getComments.rejected]: (state) => {
             state.status = "failed";
         },
     },

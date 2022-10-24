@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNewsIds } from "../service/hackerNewsAPI";
+import { getNewsList } from "../service/hackerNewsAPI";
 import SkeletonCard from "../components/SkeletonCard/SkeletonCard";
 import Card from "./Card";
 import { newsCount } from "../constants/constants";
@@ -12,7 +12,7 @@ function News() {
     const [skeletons, setSkeletons] = useState([]);
 
     useEffect(() => {
-        dispatch(getNewsIds());
+        dispatch(getNewsList());
         for (let i = 0; i < newsCount; i++) {
             setSkeletons((prevValue) => [...prevValue, i]);
         }

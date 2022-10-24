@@ -1,12 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { newsCount } from "../constants/constants";
+import { checkDeleteComment } from "../utils/checkDeleteComment";
 
 const mainURL = "https://hacker-news.firebaseio.com/v0/";
 const listOfNewsIdURL = mainURL + "newstories.json"; // Up to 500 top and new stories are at /v0/topstories (also contains jobs) and /v0/newstories. Best stories are at /v0/beststories.
 const oneNewsURL = mainURL + "item/";
 
-export const getNewsIds = createAsyncThunk("news/getNewsIDs", async () => {
+export const getNewsList = createAsyncThunk("news/getNewsList", async () => {
     try {
         const response = await axios.get(listOfNewsIdURL);
         const requests = response.data.slice(0, newsCount).map(async (el) => {
@@ -16,6 +17,27 @@ export const getNewsIds = createAsyncThunk("news/getNewsIDs", async () => {
             });
         });
         return Promise.all(requests);
+    } catch (e) {
+        console.log(e.message);
+        return;
+    }
+});
+
+export const getComments = createAsyncThunk("news/getComments", async (id) => {
+    try {
+        const response = await axios.get(oneNewsURL + id + ".json");
+        if (!response.data.kids) {
+            return;
+        } else {
+            const requests = response.data.kids.map(async (el) => {
+                console.log(el);
+                const url = oneNewsURL + el + ".json";
+                return await axios.get(url).then((res) => {
+                    return res.data;
+                });
+            });
+            return Promise.all(requests);
+        }
     } catch (e) {
         console.log(e.message);
         return;

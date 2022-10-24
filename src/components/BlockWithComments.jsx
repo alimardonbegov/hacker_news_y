@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getTheNews } from "../service/hackerNewsAPI";
+import { getComments, getTheNews } from "../service/hackerNewsAPI";
 import { checkDeleteComment } from "../utils/checkDeleteComment";
 import { checkDublicateComments } from "../utils/checkDublicateComments";
 import { sortComments } from "../utils/sortComments";
@@ -8,10 +8,14 @@ import Comment from "./Comment";
 import SkeletonTheNews from "./skeletonTheNews/SkeletonTheNews";
 import ThenewsDetail from "./ThenewsDetail";
 
+import { useDispatch } from "react-redux";
+
 function BlockWithComments(props) {
+    const dispatch = useDispatch();
     const newsList = useSelector((state) => state.news.newsList);
+    const comments = useSelector((state) => state.news.comments);
+
     const [theNews, setTheNews] = useState({});
-    const [comments, setComments] = useState([]);
 
     //get the news information
     useEffect(() => {
@@ -21,24 +25,17 @@ function BlockWithComments(props) {
     }, [newsList]);
 
     //get comments information
+
     useEffect(() => {
-        theNews.kids &&
-            theNews.kids.map((el) =>
-                getTheNews(el).then((data) => {
-                    data &&
-                        checkDeleteComment(data) &&
-                        checkDublicateComments(comments, data) &&
-                        setComments((prevValue) => [...prevValue, data]);
-                })
-            );
-    }, [theNews]);
+        dispatch(getComments(props.id));
+    }, [newsList]);
 
     return theNews.title == undefined ? (
         <SkeletonTheNews />
     ) : (
         <>
             <ThenewsDetail theNews={theNews} realComments={comments} />
-            {comments.length > 0 ? (
+            {comments && comments.length > 0 ? (
                 <div className="comments">
                     <h2 className="comments__block-name">Comments</h2>
                     {sortComments(comments).map((el, index) => (

@@ -2,15 +2,15 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { secondsUpdateInterval } from "../constants/constants";
 import { hideNews, showNews } from "../redux/newsIDsSlice";
-import { getNewsIds } from "../service/hackerNewsAPI";
+import { getNewsList } from "../service/hackerNewsAPI";
 import Button from "./button/Button";
 
 function TopOnPage({ text }) {
     const dispatch = useDispatch();
-    setInterval(() => dispatch(getNewsIds()), 1000 * secondsUpdateInterval);
+    setInterval(() => dispatch(getNewsList()), 1000 * secondsUpdateInterval);
 
     function handleClick() {
-        dispatch(getNewsIds());
+        dispatch(getNewsList());
         dispatch(showNews());
         setTimeout(() => {
             dispatch(hideNews());
