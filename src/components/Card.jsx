@@ -1,13 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { timeCalc } from "../utils/timeCalc";
+import { useDispatch } from "react-redux";
+import { openReadNews } from "../redux/newsIDsSlice";
 
-function Card({ theNews }) {
+function Card({ theNews, opacity }) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleClick = (id) => {
+        navigate(`/${id}`);
+        dispatch(openReadNews(id));
+    };
 
     return (
         theNews.title && (
-            <div className="card" onClick={() => navigate(`/${theNews.id}`)}>
+            <div
+                style={{ opacity: opacity }}
+                className="card"
+                onClick={() => handleClick(theNews.id)}
+            >
                 <h1 className="card__title">{theNews.title}</h1>
                 <div className="card__bottom">
                     <div className="card__option">

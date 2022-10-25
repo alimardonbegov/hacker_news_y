@@ -4,6 +4,7 @@ import { getComments, getNewsList } from "../service/hackerNewsAPI";
 const initialState = {
     newsList: [],
     comments: [],
+    readNews: [],
     status: null,
     isLoadingComments: true,
     isShowNews: false,
@@ -29,6 +30,9 @@ export const newsIDsSlice = createSlice({
 
         clearComments: (state) => {
             state.comments = [];
+        },
+        openReadNews: (state, action) => {
+            state.readNews.push(action.payload);
         },
     },
 
@@ -57,5 +61,11 @@ export const newsIDsSlice = createSlice({
     },
 });
 
-export const { showNews, hideNews, clearComments, startLoadingComments, finishLoadingComments } =
-    newsIDsSlice.actions;
+export const {
+    showNews,
+    hideNews,
+    clearComments,
+    startLoadingComments,
+    finishLoadingComments,
+    openReadNews,
+} = newsIDsSlice.actions;

@@ -44,7 +44,7 @@ function TopOnPage({ text }) {
         <div className="top-on-page">
             <MyButton text={text} />
             <button className="top-on-page__update-button" onClick={handleClick}>
-                Update
+                Refresh
             </button>
         </div>
     );

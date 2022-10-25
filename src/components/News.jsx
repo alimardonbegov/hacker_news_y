@@ -10,6 +10,7 @@ function News() {
     const dispatch = useDispatch();
     const isShowNews = useSelector((state) => state.news.isShowNews);
     const newsList = useSelector((state) => state.news.newsList);
+    const readNews = useSelector((state) => state.news.readNews);
     const [skeletons, setSkeletons] = useState([]);
 
     useEffect(() => {
@@ -29,7 +30,13 @@ function News() {
             newsList.length == 0 ||
             (isShowNews == false && skeletons.length > 0)
                 ? skeletons.map((el, index) => <SkeletonCard key={index} />)
-                : newsList.map((el) => <Card key={el.id} theNews={el} />)}
+                : newsList.map((el) => {
+                      return el.id && readNews.indexOf(el.id) >= 0 ? (
+                          <Card opacity="0.4" key={el.id} theNews={el} />
+                      ) : (
+                          <Card opacity="1" key={el.id} theNews={el} />
+                      );
+                  })}
         </>
     );
 }
