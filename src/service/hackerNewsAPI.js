@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { newsCount } from "../constants/constants";
 import { checkDeleteComment } from "../utils/checkDeleteComment";
+import { checkMainParams } from "../utils/checkMainParams";
 
 const mainURL = "https://hacker-news.firebaseio.com/v0/";
 const listOfNewsIdURL = mainURL + "newstories.json";
@@ -13,7 +14,7 @@ export const getNewsList = createAsyncThunk("news/getNewsList", async () => {
         const requests = response.data.slice(0, newsCount).map(async (el) => {
             const url = oneNewsURL + el + ".json";
             return await axios.get(url).then((res) => {
-                return res.data && res.data;
+                return checkMainParams(res.data) && res.data;
             });
         });
         return Promise.all(requests);

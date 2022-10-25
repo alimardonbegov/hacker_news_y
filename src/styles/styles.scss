@@ -2,7 +2,9 @@
 
 $color1: rgb(241, 242, 251);
 $color2: white;
-$color3: rgb(71, 75, 255);
+$color3: #6200ee;
+$color33: #3700b3;
+
 $color4: rgb(37, 51, 66);
 $color5: rgb(221, 221, 221);
 
@@ -12,36 +14,47 @@ body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: $color4;
 }
+.container {
+    padding: 3em 15em;
+}
 
 /*********** MAIN PAGE ***********/
-.container {
-    padding: 3em 7em;
+.top-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(98, 0, 238, 0.4);
+    height: auto;
 }
+
 .top-on-page {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3em;
+    padding: 0em 25em;
 
     &__name {
-        background-color: $color1;
+        background-color: rgba($color: #000000, $alpha: 0);
         color: $color3;
-        font-size: 3em;
-        border: 2px solid $color1;
+        font-size: 2.2em;
     }
     &__back,
     &__update-button {
-        background-color: $color1;
+        background-color: rgba($color: #000000, $alpha: 0);
         color: $color3;
-        font-size: 3em;
-        border: 2px solid $color1;
-        border-radius: 50px;
+        font-size: 2.2em;
+        //   border-radius: 50px;
         padding: 3px 10px;
-        //   &:hover {
-        //       border: 2px solid $color1;
-        //       color: $color1;
-        //       background-color: $color3;
-        //   }
+        &:hover {
+            // border: 2px solid $color33;
+            color: $color33;
+            //   background-color: $color3;
+        }
     }
+}
+
+.newsList-container {
+    margin-top: 3em;
 }
 
 /*********** MAIN PAGE __ NEWS BLOCK ***********/
@@ -210,7 +223,7 @@ body {
         font-size: 1em;
     }
     .container {
-        padding: 3em 7em;
+        padding: 2em 25em;
     }
 }
 

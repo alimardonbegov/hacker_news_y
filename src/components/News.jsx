@@ -26,19 +26,19 @@ function News() {
     }, []);
 
     return (
-        <>
+        <div className="newsList-container">
             {newsList == undefined ||
             newsList.length == 0 ||
             (isShowNews == false && skeletons.length > 0)
                 ? skeletons.map((el, index) => <SkeletonCard key={index} />)
-                : newsList.map((el) => {
+                : newsList.map((el, index) => {
                       return checkReadNews(readNews, el) ? (
-                          <Card opacity="0.4" key={el.id} theNews={el} />
+                          <Card opacity="0.4" key={index} theNews={el} />
                       ) : (
-                          <Card opacity="1" key={el.id} theNews={el} />
+                          <Card opacity="1" key={index} theNews={el} />
                       );
                   })}
-        </>
+        </div>
     );
 }
 

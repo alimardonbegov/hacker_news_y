@@ -48,16 +48,18 @@ function TopOnPage({ text }) {
     }
 
     return (
-        <div className="top-on-page">
-            <button
-                className={params.id ? "top-on-page__back" : "top-on-page__name"}
-                onClick={handleClickBack}
-            >
-                {text}
-            </button>
-            <button className="top-on-page__update-button" onClick={handleClickUpdate}>
-                Refresh
-            </button>
+        <div className="top-container">
+            <div className="top-on-page">
+                <button
+                    className={params.id ? "top-on-page__back" : "top-on-page__name"}
+                    onClick={handleClickBack}
+                >
+                    {text}
+                </button>
+                <button className="top-on-page__update-button" onClick={handleClickUpdate}>
+                    Refresh
+                </button>
+            </div>
         </div>
     );
 }
