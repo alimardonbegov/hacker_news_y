@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getComments, getNewsList } from "../service/hackerNewsAPI";
 import {
+    clearComments,
     finishLoadingComments,
     hideNews,
     showNews,
     startLoadingComments,
 } from "../redux/newsIDsSlice";
-import MyButton from "./MyButton/MyButton";
 import { secondsUpdateInterval } from "../constants/constants";
 
 function TopOnPage({ text }) {
+    const navigate = useNavigate();
     const params = useParams();
     const dispatch = useDispatch();
 
@@ -20,7 +22,7 @@ function TopOnPage({ text }) {
         return () => clearInterval(interval);
     }, []);
 
-    function handleClick() {
+    function handleClickUpdate() {
         const fetctDataNewsList = async () => {
             await dispatch(hideNews());
             await dispatch(getNewsList());
@@ -40,10 +42,20 @@ function TopOnPage({ text }) {
         }
     }
 
+    function handleClickBack() {
+        dispatch(clearComments());
+        navigate("/");
+    }
+
     return (
         <div className="top-on-page">
-            <MyButton text={text} />
-            <button className="top-on-page__update-button" onClick={handleClick}>
+            <button
+                className={params.id ? "top-on-page__back" : "top-on-page__name"}
+                onClick={handleClickBack}
+            >
+                {text}
+            </button>
+            <button className="top-on-page__update-button" onClick={handleClickUpdate}>
                 Refresh
             </button>
         </div>

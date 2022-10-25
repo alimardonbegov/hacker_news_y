@@ -5,6 +5,7 @@ import { newsCount } from "../constants/constants";
 import { getNewsList } from "../service/hackerNewsAPI";
 import SkeletonCard from "../components/SkeletonCard/SkeletonCard";
 import Card from "./Card";
+import { checkReadNews } from "../utils/checkReadNews";
 
 function News() {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ function News() {
             (isShowNews == false && skeletons.length > 0)
                 ? skeletons.map((el, index) => <SkeletonCard key={index} />)
                 : newsList.map((el) => {
-                      return el && readNews.indexOf(el.id) >= 0 ? (
+                      return checkReadNews(readNews, el) ? (
                           <Card opacity="0.4" key={el.id} theNews={el} />
                       ) : (
                           <Card opacity="1" key={el.id} theNews={el} />
