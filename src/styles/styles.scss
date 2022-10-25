@@ -16,7 +16,7 @@ body {
     color: $color4;
 }
 .container {
-    padding: 3em 15em;
+    padding: 3em 25em;
 }
 
 /*********** MAIN PAGE ***********/
@@ -56,7 +56,7 @@ body {
 
 .newsList-container,
 .comments-container {
-    margin-top: 3em;
+    margin-top: 1em;
 }
 
 /*********** MAIN PAGE __ NEWS BLOCK ***********/
@@ -113,12 +113,11 @@ body {
 /*********** NEWS PAGE __ THE NEWS DETAIL (TOP OF THE COMMENTS) ***********/
 
 .news-detail {
-    margin-top: 3em;
     padding: 10px;
     border-radius: 8px;
     background-color: $color2;
     &__title {
-        font-size: 2em;
+        font-size: 1.5em;
         padding-bottom: 0.2em;
     }
     &__link,
@@ -190,50 +189,52 @@ body {
     body {
         font-size: 1.8em;
     }
-    .container {
-        padding: 3em 15em;
-    }
 }
 
 @media (max-width: 2399px) and (min-width: 1900px) {
     body {
         font-size: 1.5em;
     }
-    .container {
-        padding: 3em 15em;
-    }
 }
 
 @media (max-width: 1899px) and (min-width: 1600px) {
     body {
-        font-size: 1.5em;
-    }
-    .container {
-        padding: 3em 10em;
+        font-size: 1.25em;
     }
 }
 @media (max-width: 1599px) and (min-width: 1400px) {
     body {
-        font-size: 1.3em;
-    }
-    .container {
-        padding: 3em 10em;
+        font-size: 1.1em;
     }
 }
 
 @media (max-width: 1399px) and (min-width: 1200px) {
     body {
-        font-size: 1em;
-    }
-    .container {
-        padding: 2em 25em;
+        font-size: 1.05em;
     }
 }
 
-@media (max-width: 1199px) and (min-width: 857px) {
+@media (max-width: 1199px) and (min-width: 1000px) {
+    body {
+        padding: 0;
+    }
+    .container {
+        padding: 3em 19em;
+    }
+    .top-on-page {
+        padding: 0.15em 19em;
+    }
+}
+@media (max-width: 999px) and (min-width: 857px) {
     body {
         padding: 0;
         font-size: 0.95em;
+    }
+    .container {
+        padding: 3em 15em;
+    }
+    .top-on-page {
+        padding: 0.15em 15em;
     }
 }
 
@@ -243,7 +244,10 @@ body {
         font-size: 0.95em;
     }
     .container {
-        padding: 3em 6em;
+        padding: 3em 12em;
+    }
+    .top-on-page {
+        padding: 0.15em 12em;
     }
 }
 
@@ -253,20 +257,39 @@ body {
         font-size: 0.95em;
     }
     .container {
-        padding: 3em 4em;
+        padding: 3em 5em;
+    }
+    .top-on-page {
+        padding: 0.15em 5em;
     }
 }
 
-@media (max-width: 546px) {
+@media (max-width: 546px) and (min-width: 400px) {
+    body {
+        padding: 0;
+        font-size: 0.85em;
+    }
+    .container {
+        padding: 3em 1em;
+    }
+    .top-on-page {
+        padding: 0.15em 1em;
+    }
+}
+
+@media (max-width: 399px) {
     body {
         padding: 0;
         font-size: 0.7em;
     }
-
     .container {
-        padding: 2em 1em;
+        padding: 3em 1em;
+    }
+
+    .top-on-page {
+        padding: 0.15em 1em;
     }
     .card {
-        font-size: 0.95em;
+        font-size: 0.8em;
     }
 }
