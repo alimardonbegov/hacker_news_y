@@ -36,22 +36,26 @@ function BlockWithComments(props) {
         fetctData().catch(console.error);
     }, [theNews]);
 
-    return theNews.title == undefined || isLoadingComments ? (
-        <SkeletonTheNews />
-    ) : (
-        <>
-            <ThenewsDetail theNews={theNews} realComments={sortedComments} />
-            <div className="comments">
-                <h2 className="comments__block-name">Comments</h2>
-                {sortedComments && sortedComments.length > 0 ? (
-                    sortedComments.map((el, index) => <Comment key={index} comment={el} />)
-                ) : (
-                    <div className="comment">
-                        <div className="comment__text"> There are no comments here yet</div>
+    return (
+        <div className="comments-container">
+            {theNews.title == undefined || isLoadingComments ? (
+                <SkeletonTheNews />
+            ) : (
+                <>
+                    <ThenewsDetail theNews={theNews} realComments={sortedComments} />
+                    <div className="comments">
+                        <h2 className="comments__block-name">Comments</h2>
+                        {sortedComments && sortedComments.length > 0 ? (
+                            sortedComments.map((el, index) => <Comment key={index} comment={el} />)
+                        ) : (
+                            <div className="comment">
+                                <div className="comment__text"> There are no comments here yet</div>
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
-        </>
+                </>
+            )}
+        </div>
     );
 }
 

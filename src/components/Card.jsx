@@ -14,6 +14,7 @@ function Card({ theNews, opacity }) {
     };
 
     return (
+        theNews !== null &&
         theNews.title && (
             <div
                 style={{ opacity: opacity }}

@@ -32,7 +32,7 @@ export const newsIDsSlice = createSlice({
             state.comments = [];
         },
         openReadNews: (state, action) => {
-            state.readNews.push(action.payload);
+            state.readNews.indexOf(action.payload) < 0 && state.readNews.push(action.payload);
         },
     },
 
