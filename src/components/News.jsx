@@ -31,7 +31,7 @@ function News() {
             (isShowNews == false && skeletons.length > 0)
                 ? skeletons.map((el, index) => <SkeletonCard key={index} />)
                 : newsList.map((el) => {
-                      return el.id && readNews.indexOf(el.id) >= 0 ? (
+                      return el && readNews.indexOf(el.id) >= 0 ? (
                           <Card opacity="0.4" key={el.id} theNews={el} />
                       ) : (
                           <Card opacity="1" key={el.id} theNews={el} />

@@ -13,7 +13,7 @@ export const getNewsList = createAsyncThunk("news/getNewsList", async () => {
         const requests = response.data.slice(0, newsCount).map(async (el) => {
             const url = oneNewsURL + el + ".json";
             return await axios.get(url).then((res) => {
-                return res.data;
+                return res.data && res.data;
             });
         });
         return Promise.all(requests);
