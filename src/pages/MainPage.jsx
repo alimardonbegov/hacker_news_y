@@ -1,11 +1,11 @@
 import React from "react";
 import News from "../components/News";
-import TopOnPage from "../components/TopOnPage";
+import Navbar from "../components/Navbar";
 
 function MainPage() {
     return (
         <div className="container">
-            <TopOnPage text="Hacker News" />
+            <Navbar text="Hacker News" />
             <News />
         </div>
     );
