@@ -2,13 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import BlockWithComments from "../components/BlockWithComments";
+import { MdOutlineArrowBack } from "react-icons/md";
 
 function NewsPage() {
     const params = useParams();
 
     return (
         <div className="container">
-            <Navbar text="Go back" />
+            <Navbar text={<MdOutlineArrowBack className="top-on-page__icon" />} />
             <BlockWithComments id={params.id} />
         </div>
     );

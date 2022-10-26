@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { MdRefresh } from "react-icons/md";
+
 import { getComments, getNewsList } from "../service/hackerNewsAPI";
+import { secondsUpdateInterval } from "../constants/constants";
+import { hideNav, showNav, updatePrevScrollPosition } from "../redux/navScrollSlice";
 import {
     clearComments,
     finishLoadingComments,
@@ -10,8 +13,6 @@ import {
     showNews,
     startLoadingComments,
 } from "../redux/newsIDsSlice";
-import { secondsUpdateInterval } from "../constants/constants";
-import { hideNav, showNav, updatePrevScrollPosition } from "../redux/navScrollSlice";
 
 function Navbar({ text }) {
     const navigate = useNavigate();
@@ -29,10 +30,6 @@ function Navbar({ text }) {
             : dispatch(hideNav());
         dispatch(updatePrevScrollPosition(currentScrollPosition));
     }
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [prevScrollPosition, visible, handleScroll]);
 
     function handleClickUpdate() {
         const fetctDataNewsList = async () => {
@@ -60,6 +57,11 @@ function Navbar({ text }) {
     }
 
     useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [prevScrollPosition, visible, handleScroll]);
+
+    useEffect(() => {
         const interval = setInterval(() => dispatch(getNewsList()), 1000 * secondsUpdateInterval);
         return () => clearInterval(interval);
     }, []);
@@ -74,7 +76,7 @@ function Navbar({ text }) {
                     {text}
                 </button>
                 <button className="top-on-page__update-button" onClick={handleClickUpdate}>
-                    Refresh
+                    <MdRefresh className="top-on-page__icon" />
                 </button>
             </div>
         </nav>

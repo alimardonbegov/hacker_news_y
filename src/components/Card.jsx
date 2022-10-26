@@ -32,7 +32,7 @@ function Card({ theNews, opacity }) {
                         <span className="card__date">{timeCalc(theNews.time)}</span>
                     </div>
                     <div className="card__option">
-                        <span className="card__option-text"> Points: </span>
+                        <span className="card__option-text"> Score: </span>
                         <span className="card__rating">{theNews.score}</span>
                     </div>
                 </div>
