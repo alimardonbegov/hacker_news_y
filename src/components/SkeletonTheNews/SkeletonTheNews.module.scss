@@ -27,6 +27,39 @@
     }
 }
 
+.skeletoncomblock {
+    width: 100%;
+    margin: 4em 0 0 10px;
+    height: auto;
+    animation: skeleton 0.6s alternate infinite;
+
+    &__header {
+        &:after {
+            content: "Comments";
+            font-size: 2em;
+        }
+    }
+    &__comment {
+        margin: 1.2em 0 0.5em;
+        display: flex;
+        justify-content: start;
+        & span {
+            background: grey;
+            border-radius: 8px;
+            width: 5em;
+            height: 1em;
+            margin-right: 1em;
+        }
+    }
+
+    &__text {
+        margin-right: 10px;
+        height: 5em;
+        border-radius: 8px;
+        background: grey;
+    }
+}
+
 @keyframes skeleton {
     0% {
         opacity: 1;

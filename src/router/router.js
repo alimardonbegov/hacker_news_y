@@ -1,4 +1,3 @@
-import SkeletonCard from "../components/SkeletonCard/SkeletonCard";
 import MainPage from "../pages/MainPage";
 import NewsPage from "../pages/NewsPage";
 
