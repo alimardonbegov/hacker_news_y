@@ -1,0 +1,15 @@
+{
+    "include": ["./src/**/*", "env.d.ts"],
+    "compilerOptions": {
+        "strict": true,
+        "esModuleInterop": true,
+        "lib": ["ES2021.String", "dom"],
+        "jsx": "react-jsx",
+
+        "baseUrl": ".",
+        "target": "es2016",
+        "module": "commonjs",
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true
+    }
+}

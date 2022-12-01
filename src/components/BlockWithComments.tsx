@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { ITheNews } from "src/interfaces";
+import { AppDispatch, RootState } from "src/redux/store";
 import { secondsUpdateInterval } from "../constants/constants";
 import { finishLoadingComments, startLoadingComments } from "../redux/newsIDsSlice";
 import { getComments, getTheNews } from "../service/hackerNewsAPI";
 import { sortComments } from "../utils/sortComments";
 import Comment from "./Comment";
-import SkeletonTheNews from "./SkeletonTheNews/SkeletonTheNews";
+import SkeletonTheNews from "./SkeletonTheNews";
 import ThenewsDetail from "./ThenewsDetail";
 
-function BlockWithComments(props) {
-    const dispatch = useDispatch();
-    const comments = useSelector((state) => state.news.comments);
-    const isLoadingComments = useSelector((state) => state.news.isLoadingComments);
-    const [theNews, setTheNews] = useState({});
+interface IBlockWithComments {
+    id: number;
+}
+
+const BlockWithComments: React.FC<IBlockWithComments> = ({ id }) => {
+    const dispatch = useDispatch<AppDispatch>();
+    const comments = useSelector((state: RootState) => state.news.comments);
+    const isLoadingComments = useSelector((state: RootState) => state.news.isLoadingComments);
+    const [theNews, setTheNews] = useState<ITheNews>();
     const sortedComments = sortComments(comments);
     const loadTheNews = () =>
-        getTheNews(props.id).then((data) => {
+        getTheNews(id).then((data) => {
             data && data.title && setTheNews(data);
         });
 
@@ -30,7 +36,7 @@ function BlockWithComments(props) {
     //get comments information
     useEffect(() => {
         const fetctData = async () => {
-            await dispatch(getComments(props.id));
+            await dispatch(getComments(id));
             await dispatch(finishLoadingComments());
         };
         fetctData().catch(console.error);
@@ -38,7 +44,7 @@ function BlockWithComments(props) {
 
     return (
         <div className="comments-container">
-            {theNews.title == undefined || isLoadingComments ? (
+            {theNews?.title == undefined || isLoadingComments ? (
                 <SkeletonTheNews />
             ) : (
                 <>
@@ -57,6 +63,6 @@ function BlockWithComments(props) {
             )}
         </div>
     );
-}
+};
 
 export default BlockWithComments;

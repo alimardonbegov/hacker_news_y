@@ -10,7 +10,7 @@ function NewsPage() {
     return (
         <div className="container">
             <Navbar text={<MdOutlineArrowBack className="top-on-page__icon" />} />
-            <BlockWithComments id={params.id} />
+            <BlockWithComments id={Number(params.id)} />
         </div>
     );
 }

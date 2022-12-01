@@ -1,12 +1,13 @@
-export const timeCalc = (timeNews) => {
-    const seconds = Math.floor((new Date() - timeNews * 1000) / 1000);
+export const timeCalc = (timeNews: number) => {
+    const currentDate: number = Number(new Date());
+    const seconds: number = Math.floor((currentDate - timeNews * 1000) / 1000);
 
-    const minute = 60;
-    const hour = 3600;
-    const day = 86400;
-    const month = 2592000;
-    const year = 31536000;
-    // made by Alimardon
+    const minute: number = 60;
+    const hour: number = 3600;
+    const day: number = 86400;
+    const month: number = 2592000;
+    const year: number = 31536000;
+
     if (seconds > 0 && seconds < minute) {
         return `${seconds} seconds ago`;
     } else if (seconds < hour) {

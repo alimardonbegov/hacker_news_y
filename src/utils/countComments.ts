@@ -1,4 +1,6 @@
-export const countComments = (kids) => {
+import { ITheComment } from "src/interfaces";
+
+export const countComments = (kids: ITheComment[]) => {
     if (kids === undefined) {
         return "0 comments";
     }

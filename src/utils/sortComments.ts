@@ -1,4 +1,6 @@
-export const sortComments = (comments) => {
+import { ITheComment } from "src/interfaces";
+
+export const sortComments = (comments: Array<ITheComment>) => {
     if (comments !== undefined) {
         const copyComments = [...comments];
         return copyComments

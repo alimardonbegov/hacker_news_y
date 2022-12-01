@@ -3,19 +3,24 @@ import { useNavigate } from "react-router-dom";
 import { timeCalc } from "../utils/timeCalc";
 import { useDispatch } from "react-redux";
 import { openReadNews } from "../redux/newsIDsSlice";
+import { ITheNews } from "src/interfaces";
 
-function Card({ theNews, opacity }) {
+interface ICard {
+    theNews: ITheNews;
+    opacity: string;
+}
+
+const Card: React.FC<ICard> = ({ theNews, opacity }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleClick = (id) => {
+    const handleClick = (id: number) => {
         navigate(`/${id}`);
         dispatch(openReadNews(id));
     };
 
-    return (
-        theNews !== null &&
-        theNews.title && (
+    if (theNews !== null && theNews.title) {
+        return (
             <div
                 style={{ opacity: opacity }}
                 className="card"
@@ -37,8 +42,8 @@ function Card({ theNews, opacity }) {
                     </div>
                 </div>
             </div>
-        )
-    );
-}
+        );
+    } else return null;
+};
 
 export default Card;

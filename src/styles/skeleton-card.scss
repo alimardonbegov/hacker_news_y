@@ -1,11 +1,11 @@
-.skeleton {
+.skeleton-card {
     width: 100%;
     height: auto;
     margin: 1em 0;
     padding: 10px;
     border-radius: 8px;
     background: lightgray;
-    animation: skeleton 0.6s alternate infinite;
+    animation: skeleton-card 0.6s alternate infinite;
     &__header {
         background: grey;
         border-radius: 8px;
@@ -29,7 +29,7 @@
     }
 }
 
-@keyframes skeleton {
+@keyframes skeleton-card {
     0% {
         opacity: 1;
     }

@@ -1,4 +1,6 @@
-export const checkDeleteComment = (comment) => {
+import { ITheComment } from "src/interfaces";
+
+export const checkDeleteComment = (comment: ITheComment) => {
     if (comment.delete) {
         return false;
     } else if (comment.deleted) {

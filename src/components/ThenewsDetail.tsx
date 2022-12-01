@@ -1,9 +1,15 @@
 import React from "react";
+import { ITheComment, ITheNews } from "src/interfaces";
 import { countComments } from "../utils/countComments";
 import { getDomain } from "../utils/getDomain";
 import { timeCalc } from "../utils/timeCalc";
 
-function ThenewsDetail({ theNews, realComments }) {
+interface IThenewsDetail {
+    theNews: ITheNews;
+    realComments: Array<ITheComment>;
+}
+
+const ThenewsDetail: React.FC<IThenewsDetail> = ({ theNews, realComments }) => {
     return (
         <div className="news-detail">
             <h1 className="news-detail__title">
@@ -35,6 +41,6 @@ function ThenewsDetail({ theNews, realComments }) {
             </div>
         </div>
     );
-}
+};
 
 export default ThenewsDetail;

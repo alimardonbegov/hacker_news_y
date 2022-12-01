@@ -1,10 +1,10 @@
-.skeleton {
+.skeleton-the-news {
     width: 100%;
     height: auto;
     padding: 10px;
     border-radius: 8px;
     background: lightgray;
-    animation: skeleton 0.6s alternate infinite;
+    animation: skeleton-comment 0.6s alternate infinite;
     &__header {
         background: grey;
         border-radius: 8px;
@@ -31,7 +31,7 @@
     width: 100%;
     margin: 4em 0 0 10px;
     height: auto;
-    animation: skeleton 0.6s alternate infinite;
+    animation: skeleton-comment 0.6s alternate infinite;
 
     &__header {
         &:after {
@@ -60,7 +60,7 @@
     }
 }
 
-@keyframes skeleton {
+@keyframes skeleton-comment {
     0% {
         opacity: 1;
     }

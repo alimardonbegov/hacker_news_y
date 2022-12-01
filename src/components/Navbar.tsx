@@ -13,13 +13,20 @@ import {
     showNews,
     startLoadingComments,
 } from "../redux/newsIDsSlice";
+import { AppDispatch, RootState } from "src/redux/store";
 
-function Navbar({ text }) {
+interface INavbar {
+    text: any; // string or component
+}
+
+const Navbar: React.FC<INavbar> = ({ text }) => {
     const navigate = useNavigate();
     const params = useParams();
-    const dispatch = useDispatch();
-    const prevScrollPosition = useSelector((state) => state.navScroll.prevScrollPosition);
-    const visible = useSelector((state) => state.navScroll.visible);
+    const dispatch = useDispatch<AppDispatch>();
+    const prevScrollPosition = useSelector(
+        (state: RootState) => state.navScroll.prevScrollPosition
+    );
+    const visible = useSelector((state: RootState) => state.navScroll.visible);
 
     function handleScroll() {
         const currentScrollPosition = window.pageYOffset;
@@ -38,14 +45,14 @@ function Navbar({ text }) {
             await dispatch(showNews());
         };
 
-        const fetctDataComments = async (id) => {
+        const fetctDataComments = async (id: number) => {
             await dispatch(startLoadingComments());
             await dispatch(getComments(id));
             await dispatch(finishLoadingComments());
         };
 
         if (params.id) {
-            fetctDataComments(params.id).catch(console.error);
+            fetctDataComments(Number(params.id)).catch(console.error);
         } else {
             fetctDataNewsList().catch(console.error);
         }
@@ -81,6 +88,6 @@ function Navbar({ text }) {
             </div>
         </nav>
     );
-}
+};
 
 export default Navbar;

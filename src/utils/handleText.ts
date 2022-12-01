@@ -1,4 +1,5 @@
-export const handleText = (text) => {
+export const handleText = (text: any) => {
+    // any , bcs .replace .join doesn't work on string
     const solidus = "&#x2F;";
     const apostrophe = "&#x27;";
 
@@ -9,7 +10,7 @@ export const handleText = (text) => {
         text = text.replaceAll(apostrophe, "'");
     }
     if (text == undefined) {
-        text = 123;
+        return text;
     }
     return text;
 };

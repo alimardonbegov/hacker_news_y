@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ITheComment } from "src/interfaces";
 import { getTheNews } from "../service/hackerNewsAPI";
 import { checkDeleteComment } from "../utils/checkDeleteComment";
 import { checkDublicateComments } from "../utils/checkDublicateComments";
@@ -8,13 +9,17 @@ import { sortComments } from "../utils/sortComments";
 import { timeCalc } from "../utils/timeCalc";
 import Subcomment from "./Subcomment";
 
-function Comment({ comment }) {
-    const [show, setShow] = useState(false);
-    const [subcomments, setSubcomments] = useState([]);
+interface IComment {
+    comment: ITheComment;
+}
+
+const Comment: React.FC<IComment> = ({ comment }) => {
+    const [show, setShow] = useState<Boolean>(false);
+    const [subcomments, setSubcomments] = useState<ITheComment[]>([]);
 
     useEffect(() => {
         comment.kids &&
-            comment.kids.map((el) =>
+            comment.kids.map((el: number) =>
                 getTheNews(el).then((data) => {
                     data &&
                         checkDeleteComment(data) &&
@@ -41,9 +46,11 @@ function Comment({ comment }) {
             </div>
 
             {show &&
-                sortComments(subcomments).map((el, index) => <Subcomment key={index} kid={el} />)}
+                sortComments(subcomments).map((el, index) => (
+                    <Subcomment key={index} comment={el} />
+                ))}
         </>
     );
-}
+};
 
 export default Comment;

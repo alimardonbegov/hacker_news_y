@@ -6,7 +6,7 @@
 ## Tools
 - React
 - Redux
-- JS
+- TypeScript
 - SCSS
 - [React Icons](https://react-icons.github.io/react-icons/) only for arrows on the navbar
 - [Official API Hacker News](https://github.com/HackerNews/API)
