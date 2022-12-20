@@ -20,4 +20,4 @@ Installation using command line:
 - yarn start
 
 ### Remotly
-Open the project on CodeSandbox by the [link](https://93rtqd-3000.preview.csb.app/), that connected to this repository and synchronized.
+Open the project on CodeSandbox by the [abegov-hnews.web.app](https://abegov-hnews.web.app/), that connected to this repository and synchronized.
